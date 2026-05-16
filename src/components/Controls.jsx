@@ -1,24 +1,35 @@
+import IngredientButton from "./ingredientButton"
+
+
 function Controls({ pizza, onToggle }) {
-  // TODO (Iteration 1+): wire each button's onClick to onToggle(<ingredient-name>)
-  // TODO: add/remove the "active" class on each button based on the pizza state
 
   return (
     <div className="panel controls">
       <ul>
         <li>
-          <button className="btn btn-pepperoni active">pepperoni</button>
+          <IngredientButton active={pizza.pepperoni} className="btn-pepperoni" onClick={() => onToggle("pepperoni")}>
+            Pepperoni
+          </IngredientButton>
         </li>
         <li>
-          <button className="btn btn-mushrooms active">Mushrooms</button>
+          <IngredientButton active={pizza.mushrooms} className="btn-mushrooms" onClick={() => onToggle("mushrooms")}>
+            Mushrooms
+          </IngredientButton>
         </li>
         <li>
-          <button className="btn btn-green-peppers active">Green peppers</button>
+          <IngredientButton active={pizza.greenPeppers} className="btn-green-peppers" onClick={() => onToggle("greenPeppers")}>
+            Green peppers
+          </IngredientButton>
         </li>
         <li>
-          <button className="btn btn-sauce active">White sauce</button>
+          <IngredientButton active={pizza.whiteSauce} className="btn-sauce" onClick={() => onToggle("whiteSauce")}>
+            White sauce
+          </IngredientButton>
         </li>
         <li>
-          <button className="btn btn-crust active">Gluten-free crust</button>
+          <IngredientButton active={pizza.glutenFreeCrust} className="btn-crust" onClick={() => onToggle("glutenFreeCrust")}>
+            Gluten-free crust
+          </IngredientButton>
         </li>
       </ul>
     </div>

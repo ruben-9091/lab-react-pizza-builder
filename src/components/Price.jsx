@@ -1,15 +1,9 @@
+import calculatePrice from "./calculatePrice"
+
 function Price({ pizza }) {
-  // TODO (Iteration 4):
-  //   1. Hide each <li> when its ingredient is NOT active.
-  //   2. Compute the total price based on the pizza state and show it in <strong>.
-  //
-  // Prices:
-  //   base (cheese pizza) -> $10
-  //   pepperoni           -> $1
-  //   mushrooms           -> $1
-  //   green peppers       -> $1
-  //   white sauce         -> $3
-  //   gluten-free crust   -> $5
+ 
+ 
+  
 
   return (
     <aside className="panel price">
@@ -17,13 +11,13 @@ function Price({ pizza }) {
 
       <b>$10 cheese pizza</b>
       <ul>
-        <li>$1 pepperoni</li>
-        <li>$1 mushrooms</li>
-        <li>$1 green peppers</li>
-        <li>$3 white sauce</li>
-        <li>$5 gluten-free crust</li>
+        {pizza.pepperoni && <li>$1 pepperoni</li>} 
+        {pizza.mushrooms && <li>$1 mushrooms</li>} 
+        {pizza.greenPeppers && <li>$1 green peppers</li>}
+        {pizza.whiteSauce && <li>$3 white sauce</li>}
+        {pizza.glutenFreeCrust && <li>$5 gluten-free crust</li>}
       </ul>
-      <strong>$21</strong>
+      <strong>${calculatePrice(pizza)}</strong>
     </aside>
   )
 }

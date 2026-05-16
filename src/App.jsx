@@ -6,33 +6,24 @@ import Pizza from './components/Pizza'
 import Footer from './components/Footer'
 
 function App() {
-  // TODO (Iteration 1): define the pizza state with useState.
-  //   Each ingredient should start as `true` (all toppings visible by default).
-  //
-  //   const [pizza, setPizza] = useState({
-  //     pepperoni: true,
-  //     mushrooms: true,
-  //     greenPeppers: true,
-  //     whiteSauce: true,
-  //     glutenFreeCrust: true,
-  //   })
 
-  // TODO (Iteration 1): implement a handleToggle(ingredient) function that flips
-  // the value of the given ingredient in the state and call setPizza with the
-  // new object. Pass it down to <Controls /> as the `onToggle` prop.
+const [pizza, setPizza] = useState({
+  pepperoni: true,
+  mushrooms: true,
+  greenPeppers: true,
+  whiteSauce: true,
+  glutenFreeCrust: true,
+})
 
-  const pizza = {
-    pepperoni: true,
-    mushrooms: true,
-    greenPeppers: true,
-    whiteSauce: true,
-    glutenFreeCrust: true,
-  }
+function handleToggle(ingredient) {
+  setPizza({...pizza, [ingredient]:!pizza[ingredient]})
+}
+
 
   return (
     <>
       <Header />
-      <Controls pizza={pizza} onToggle={() => {}} />
+      <Controls pizza={pizza} onToggle={handleToggle} />
       <Price pizza={pizza} />
       <Pizza pizza={pizza} />
       <p id="crumbs">&there4;</p>
